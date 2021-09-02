@@ -185,7 +185,7 @@ const updatePersonal = async ctx => {
     phone,
     email
     }).then(rel => {
-    if (rel.n > 0) {
+    if (rel.n>0) {
       ctx.body = {
         code: 200,
         msg: '资料已更新'

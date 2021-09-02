@@ -15,6 +15,8 @@ MongoConnect()
 const index = require('./routes/index')
 const users = require('./routes/users')
 const upload = require('./routes/upload')
+const article = require('./routes/article')
+const comment = require('./routes/comment')
 
 // error handler
 onerror(app)
@@ -50,6 +52,8 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(upload.routes(), upload.allowedMethods())
+app.use(article.routes(), article.allowedMethods())
+app.use(comment.routes(), comment.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

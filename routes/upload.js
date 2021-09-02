@@ -25,6 +25,7 @@ let upload = multer({
   filename: function (req,file,cb) {
     //设置上传文件的名称
     let fileName = file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    //fileName就是上传文件的文件名
     cb(null,fileName)
   }
   })
@@ -36,6 +37,20 @@ router.post('/img', upload.single('myfile'), async ctx=>{
   path = ctx.origin + '' + path.replace('public','')
   ctx.body = {
     data: path
+  }
+})
+
+//富文本编辑器上传图片
+router.post('/editor/img', upload.single('editorFile'), async ctx=>{
+  let path = ctx.req.file.path
+  path = ctx.origin + '' + path.replace('public','')
+  ctx.body = {
+    errno: 0,
+    data: [{
+      url: path,
+      alt: '',
+      href: ''
+    }]
   }
 })
 
