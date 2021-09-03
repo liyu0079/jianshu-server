@@ -10,7 +10,7 @@ let upload = multer({
   destination: function(req, file, cb){
     let date = new Date()
     let year = date.getFullYear()
-    let month = date.getMonth()+1
+    let month =  (date.getMonth() + 1).toString().padStart(2, '0');
     let day = date.getDay()
     let dir = "./public/uploads" + year + month + day
 

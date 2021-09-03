@@ -73,7 +73,7 @@ const add = async ctx =>{
 const findById = async ctx =>{
    let {id} = ctx.query
 
-   await Comment.find({articleId:ia}).then(rel =>{
+   await Comment.find({articleId:id}).then(rel =>{
       if(rel && rel.length > 0 ){
         ctx.body = {
           code: 200,
@@ -143,7 +143,7 @@ const findByAuthor = async ctx =>{
            }
          }else{
           ctx.body = {
-            code: 200,
+            code: 300,
             msg: '查询失败'
           }
          }

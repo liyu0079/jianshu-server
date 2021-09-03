@@ -5,7 +5,6 @@ let {
   update,
   del
 } = require('../controller/article')
-const { updateOne } = require('../models/article')
 const router = require('koa-router')()
 router.prefix('/article')
 

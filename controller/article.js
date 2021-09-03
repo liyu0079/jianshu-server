@@ -63,7 +63,7 @@ const findAll = async ctx =>{
    let start = (page -1) / pageSize
 
 
-   await Article.find({author}).skip().limit().then(rel =>{
+   await Article.find({author}).skip(start).limit(pageSize).then(rel =>{
          if(rel && rel.length > 0){
            ctx.body = {
              code: 200,

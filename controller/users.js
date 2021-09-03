@@ -32,8 +32,7 @@ const login = async (ctx) => {
       } else {
         ctx.body = {
           code: 300,
-          msg: '用户名或密码错误',
-          token
+          msg: '用户名或密码错误'
         }
       }
     })
@@ -41,7 +40,7 @@ const login = async (ctx) => {
       ctx.body = {
         code: 500,
         msg: '登录时出现异常',
-        token
+        err
       }
     })
 }
@@ -90,7 +89,8 @@ const reg = async ctx => {
     .catch((err) => {
       ctx.body = {
         code: 500,
-        msg: '注册时出现异常'
+        msg: '注册时出现异常',
+        err
       }
     })
 
@@ -124,15 +124,14 @@ const verify = async ctx => {
     }).catch(err => {
       cte.body = {
         code: 500,
-        msg: '用户认证失败'
-
+        msg: '用户认证失败',
+        err 
       }
     })
   } catch (err) {
     cte.body = {
       code: 500,
       msg: '用户认证失败'
-
     }
   }
 }
@@ -165,7 +164,8 @@ const updatePwd = async ctx => {
   }).catch(err => {
     ctx.body = {
       code: 500,
-      msg: '密码修改时出现异常'
+      msg: '密码修改时出现异常',
+      err
     }
   })
 }
@@ -199,7 +199,8 @@ const updatePersonal = async ctx => {
   }).catch(err => {
     ctx.body = {
       code: 500,
-      msg: '资料更新异常'
+      msg: '资料更新异常',
+      err
     }
   })
 }
