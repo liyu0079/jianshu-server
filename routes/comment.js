@@ -11,9 +11,9 @@ router.post('/add',add)
 router.post('/del',del)
 
 //前台查询评论
-router.post('/web/find',findById)
+router.get('/web/find',findById)
 
 //后台查询评论
-router.post('/admin/find',findByAuthor)
+router.get('/admin/find',findByAuthor)
 
 module.exports = router

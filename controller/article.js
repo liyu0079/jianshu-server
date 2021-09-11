@@ -136,15 +136,15 @@ const findAll = async ctx =>{
         content: article.content
     }
   ).then(rel =>{
-    if(rel.n > 0){
+    if(rel.matchedCount > 0){
       ctx.body = {
         code: 200,
-        msg: '文章更新成功'
+        msg: '文章更新成功',
       }
     }else{
       ctx.body = {
         code: 300,
-        msg: '文章更新失败'
+        msg: '文章更新失败',
       }
     }
   }).catch(err =>{
@@ -171,7 +171,8 @@ const findAll = async ctx =>{
     }else{
       ctx.body = {
         code: 300,
-        msg: '文章删除失败'
+        msg: '文章删除失败',
+        result: rel
       }
     }
   }).catch(err =>{

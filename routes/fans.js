@@ -11,6 +11,6 @@ router.post('/follow',follow)
 router.post('/unfollow',unfollow)
 
 //查询粉丝
-router.get('/unfollow',findAll)
+router.get('/findAll',findAll)
 
 module.exports = router
